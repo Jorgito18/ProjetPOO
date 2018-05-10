@@ -5,6 +5,11 @@ Joueurs::Joueurs(){
 	for (int i=0;i<2;i++){
 		_cartesJoueurs[i] = NULL;
 	}
+	for (int i=0;i<12;i++){
+
+		_combinaison[i] = NULL;
+
+	}
 
 	_numJoueur = 0;
 }
@@ -14,7 +19,9 @@ Joueurs::Joueurs(const Joueurs& j){
 	for (int i=0; i < 2; i++){
 		_cartesJoueurs[i] = j._cartesJoueurs[i];
 	}
-
+	for (int i=0;i<12;i++){
+    this->_combinaison[i] = j._combinaison[i];
+  }
 	_numJoueur = j._numJoueur;
 }
 //-----------------------------------------------------------------
@@ -28,6 +35,11 @@ int Joueurs::getNum() const{
 	return (_numJoueur);
 }
 //-----------------------------------------------------------------
+//Getter de l'attribut des cartes publiques: on retourne les cartes présentes au centre du plateau
+Cartes* const* Joueurs::getCombinaison() const{
+	return (_combinaison);
+}
+//-----------------------------------------------------------------
 //Getter de l'attribut cartes du joueur: on retourne le tableau des cartes du joueur
 Cartes Joueurs::obtenirCarte(int posCarte) const{
 	return (*_cartesJoueurs[posCarte]);
@@ -36,6 +48,13 @@ Cartes Joueurs::obtenirCarte(int posCarte) const{
 //Setter de l'attribut numéro de joueur: on donne un numéro de joueur au nouveau joueur
 void Joueurs::setNum(int num){
 	_numJoueur = num;
+}
+//-----------------------------------------------------------------
+//Setter de l'attribut des cartes publiques: on donne les cartes présentes au centre du plateau
+void Joueurs::setCombinaison(Cartes * c){
+	for (int i = 0; i < 12; i++) {
+		* _combinaison[i] = c[i];
+	}
 }
 //-----------------------------------------------------------------
 //Setter de l'attribut cartes de joueur: on donne une carte au joueur

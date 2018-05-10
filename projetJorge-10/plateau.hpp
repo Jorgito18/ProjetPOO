@@ -39,7 +39,6 @@ class Deck{
 class Plateau{
 	private:
 		  Cartes * _board[5];
-			Cartes * _combinaison[7];
 		  int _tour;
 			Joueurs * _joueurs[10];
 			int _nbJoueurs;
@@ -51,11 +50,9 @@ class Plateau{
     	int getTours() const;
 			int getNbJoueurs() const;
     	Cartes* const* getBoard() const;
-			Cartes* const* getCombinaison() const;
 			Joueurs* const* getJoueurs() const;
       void setTours(int tour);
       void setBoard(Cartes * c);
-			void setCombinaison(Cartes * c);
 			void setJoueurs(Joueurs * j, int nbJoueurs);
 			void afficherBoard();
 		  void afficherPlateau();

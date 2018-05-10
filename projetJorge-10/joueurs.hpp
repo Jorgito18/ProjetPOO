@@ -24,13 +24,16 @@ using namespace std;
 class Joueurs{
 	private:
 		Cartes * _cartesJoueurs[2];
+		Cartes * _combinaison[12];
 		int _numJoueur;
 	public:
 		Joueurs();
 		Joueurs(const Joueurs& j);
 		~Joueurs();
+		Cartes* const* getCombinaison() const;
 		int getNum() const;
 		Cartes obtenirCarte(int posCarte) const ;
+		void setCombinaison(Cartes * c);
 		void setNum(int num);
 		void nouvelleCarte(Cartes c);
 		void afficherJoueurs();

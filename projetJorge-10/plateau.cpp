@@ -16,11 +16,7 @@ Plateau::Plateau(){
 		_joueurs[i] = NULL;
 
 	}
-  for (int i=0;i<7;i++){
 
-    _combinaison[i] = NULL;
-
-  }
 }
 //-----------------------------------------------------------------
 //Constructeur par recopie: on utilise une instance de Plateau comme réference pour créer un nouvel plateau
@@ -35,9 +31,6 @@ Plateau::Plateau(const Plateau& p){
 	for (int i=0;i<10;i++){
 		this->_joueurs[i] = p._joueurs[i];
 	}
-  for (int i=0;i<7;i++){
-    this->_combinaison[i] = p._combinaison[i];
-  }
 }
 //-----------------------------------------------------------------
 // Destructeur de la classe
@@ -60,11 +53,6 @@ Cartes* const* Plateau::getBoard() const{
 	return (_board);
 }
 //-----------------------------------------------------------------
-//Getter de l'attribut des cartes publiques: on retourne les cartes présentes au centre du plateau
-Cartes* const* Plateau::getCombinaison() const{
-	return (_combinaison);
-}
-//-----------------------------------------------------------------
 //Getter de l'attribut des tableau de joueurs: on retourne les cartes présentes au centre du plateau
 Joueurs* const* Plateau::getJoueurs() const{
 	return (_joueurs);
@@ -79,12 +67,6 @@ void Plateau::setTours(int tour){
 void Plateau::setBoard(Cartes * c){
 	for (int i = 0; i < 5; i++) {
 		* _board[i] = c[i];
-	}
-}
-//Setter de l'attribut des cartes publiques: on donne les cartes présentes au centre du plateau
-void Plateau::setCombinaison(Cartes * c){
-	for (int i = 0; i < 7; i++) {
-		* _combinaison[i] = c[i];
 	}
 }
 //-----------------------------------------------------------------
